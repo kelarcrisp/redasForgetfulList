@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ToDo from '../ToDo/ToDo';
+
 const ToDos = (props) => {
 
 
@@ -8,10 +9,8 @@ const ToDos = (props) => {
     const [fetchedToDos, setFetchedToDos] = useState([])
     useEffect(() => {
         const timer = setTimeout(() => {
-
             axios.get('https://redas-forgetful-list.firebaseio.com/ToDos.json').then(responseData => {
                 const fetchedItems = [];
-
                 for (const key in responseData.data) {
                     fetchedItems.push({
                         id: key,
@@ -19,7 +18,6 @@ const ToDos = (props) => {
                     })
                 }
                 setFetchedToDos(fetchedItems)
-                console.log(fetchedItems)
             })
             return () => {
                 clearTimeout(timer)
@@ -33,18 +31,16 @@ const ToDos = (props) => {
         const url = 'https://redas-forgetful-list.firebaseio.com'
         axios.delete(`${url}/ToDos/${toDoId}.json`)
             .then((response => {
-                console.log(toDoId, 'todoid')
-                console.log(response, 'its been deleted')
             })).catch(err => console.log(err))
         let newToDos = fetchedToDos.filter((x => {
             return x.id !== toDoId
         }))
         setFetchedToDos(newToDos)
     }
+
     return (
         <div>
             {fetchedToDos.map((x) => {
-                console.log(x)
                 return <ToDo
                     key={x.id} id={x.id} todos={x.toDos.toDos} delete={deleteTodo} />
             })}

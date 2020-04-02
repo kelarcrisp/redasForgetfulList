@@ -1,8 +1,7 @@
 import React from 'react';
-import firebaseConfig from './Firebase/FirebaseConfig';
+import { firebaseConfig } from './Firebase/FirebaseConfig';
 import ToDoForm from './components/ToDoForm/ToDoForm';
-import ToDos from './components/ToDos/ToDos';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 firebase.initializeApp(firebaseConfig);
 
 function App() {

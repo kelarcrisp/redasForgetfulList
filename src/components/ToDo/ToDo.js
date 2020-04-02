@@ -1,18 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classes from './ToDo.module.css';
-import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import axios from 'axios';
+
 
 const ToDo = props => {
+
+    const [complete, setComplete] = useState(false);
+    let toggleLineThrough;
+    if (!complete) {
+        toggleLineThrough = <div className={classes.ToDoInfo}>{props.todos}</div>
+    }
+    else {
+        toggleLineThrough = <div className={classes.ToDoInfoLineThrough}>{props.todos}</div>
+    }
     return (
         <div>
             <ul className={classes.List}>
                 <li className={classes.TodoContainer}>
-                    <div className={classes.ToDoInfo}>{props.todos}</div>
+                    {}
+                    {toggleLineThrough}
                     <div className={classes.ToDoIcons}>
-                        {<EditIcon className={classes.ToDoIcon} fontSize='small'></EditIcon>}
+                        {<EditIcon className={classes.ToDoIcon} onClick={() => setComplete(!complete)} fontSize='small'></EditIcon>}
                         {<DeleteIcon className={classes.ToDoIcon} onClick={() => props.delete(props.id)} fontSize='small'></DeleteIcon>}
                     </div>
                 </li>

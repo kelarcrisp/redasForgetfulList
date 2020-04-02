@@ -28,3 +28,8 @@ cursor: pointer;
     font-family: 'Sen', sans-serif;
 }
 
+.ToDoInfoLineThrough{
+       margin: 0 auto;
+    font-family: 'Sen', sans-serif;
+  text-decoration: line-through;
+}
