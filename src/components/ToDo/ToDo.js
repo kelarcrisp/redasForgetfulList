@@ -6,7 +6,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import axios from 'axios';
 
 const ToDo = props => {
-
     return (
         <div>
             <ul className={classes.List}>
