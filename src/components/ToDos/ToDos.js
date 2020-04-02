@@ -21,7 +21,6 @@ const ToDos = (props) => {
                 setFetchedToDos(fetchedItems)
                 console.log(fetchedItems)
             })
-
             return () => {
                 clearTimeout(timer)
             }
@@ -31,10 +30,12 @@ const ToDos = (props) => {
     //this deletes items locallly and needs to be changed to delete them from the DB
 
     const deleteTodo = (toDoId) => {
-        axios.delete('https://redas-forgetful-list.firebaseio.com/ToDos' + toDoId + '.json').then((response => {
-
-            console.log(response, 'its been deleted')
-        })).catch(err => console.log(err))
+        const url = 'https://redas-forgetful-list.firebaseio.com'
+        axios.delete(`${url}/ToDos/${toDoId}.json`)
+            .then((response => {
+                console.log(toDoId, 'todoid')
+                console.log(response, 'its been deleted')
+            })).catch(err => console.log(err))
         let newToDos = fetchedToDos.filter((x => {
             return x.id !== toDoId
         }))
