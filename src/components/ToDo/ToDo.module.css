@@ -1,35 +1,34 @@
-ul{
-    padding: 0px;
+ul {
+  padding: 0px;
 }
-.TodoContainer{
-    list-style: none; 
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    width: 24rem;
-    height: 4rem;
-    align-items: center;
-    box-shadow: 0 1px 3px rgba(34, 33, 33, 0.753);  
-    margin: 0 auto;
-
-}
-
-.ToDoIcon{
-margin-right: 8px;
+.TodoContainer {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90vw;
+  height: 4rem;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(34, 33, 33, 0.753);
+  margin-left: 1rem;
+  box-sizing: border-box;
 }
 
-.ToDoIcon:hover{
-cursor: pointer;
+.ToDoIcon {
+  margin-right: 8px;
 }
 
-
-.ToDoInfo{
-   margin: 0 auto;
-    font-family: 'Sen', sans-serif;
+.ToDoIcon:hover {
+  cursor: pointer;
 }
 
-.ToDoInfoLineThrough{
-       margin: 0 auto;
-    font-family: 'Sen', sans-serif;
+.ToDoInfo {
+  margin: 0 auto;
+  font-family: "Sen", sans-serif;
+}
+
+.ToDoInfoLineThrough {
+  margin: 0 auto;
+  font-family: "Sen", sans-serif;
   text-decoration: line-through;
 }
